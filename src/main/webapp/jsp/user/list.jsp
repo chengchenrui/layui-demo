@@ -11,17 +11,18 @@
 <head>
     <title>开始使用layui</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/js/layui/css/layui.css">
-    <script src="${pageContext.request.contextPath}/resource/js/layui/layui.js"></script>
+
 </head>
 <body>
 
 <!-- 你的HTML代码 -->
-<p>${pageContext.request.contextPath}</p>
+<table class="layui-hide" id="test"></table>
 
+<script src="${pageContext.request.contextPath}/resource/js/layui/layui.js"></script>
 <script>
     layui.config({
         base: '${pageContext.request.contextPath}/resource/js/modules/' //你存放新模块的目录，注意，不是layui的模块目录
-    }).use('index'); //加载入口
+    }).use('list'); //加载入口
 </script>
 
 </body>
