@@ -3,8 +3,9 @@ package com.layui.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,21 +20,18 @@ import com.layui.model.base.Result;
 @RequestMapping(value = "/layui")
 public class UserInfoController {
 
-    @RequestMapping(value = "/list/user", method = RequestMethod.POST, produces = { "application/json;charset=utf-8" })
-    public Result<List<User>> list(Model model) {
+    @RequestMapping(value = "/list/user", method = RequestMethod.POST)
+    public Result<List<User>> list(HttpServletRequest httpServletRequest) {
         List<User> users = new ArrayList<>();
         User user;
         for (int i = 0; i < 20; i++) {
             user = new User();
-            user.setId(i + "");
-            user.setUsername("用户名——" + i);
-            user.setSex("男");
-            user.setCity("A");
-            user.setSign("123");
-            user.setExperience("100");
-            user.setScore(i * 5 + "");
-            user.setClassify("开发");
-            user.setWealth(i * 10 + "");
+            user.setUserName("用户名——" + i);
+            user.setUserEmail(i + "");
+            user.setUserSex("男");
+            user.setUserGrade("123");
+            user.setUserStatus("1");
+            user.setUserEndTime(i * 5 + "");
             users.add(user);
         }
         return new Result<>(true, users);

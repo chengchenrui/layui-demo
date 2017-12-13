@@ -10,8 +10,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>开始使用layui</title>
-    <link rel="stylesheet" href="/resource/js/layui/css/layui.css">
-    <script src="/resource/js/layui/layui.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/js/layui/css/layui.css">
+    <script src="${pageContext.request.contextPath}/resource/js/layui/layui.js"></script>
 </head>
 <body>
 
@@ -19,7 +19,7 @@
 
 <script>
     layui.config({
-        base: '/resource/js/modules/' //你存放新模块的目录，注意，不是layui的模块目录
+        base: '${pageContext.request.contextPath}/resource/js/modules/' //你存放新模块的目录，注意，不是layui的模块目录
     }).use('index'); //加载入口
 </script>
 

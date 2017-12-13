@@ -16,7 +16,41 @@
 <body>
 
 <!-- 你的HTML代码 -->
-<table class="layui-hide" id="test"></table>
+<%--<table class="layui-hide" id="test"></table>--%>
+
+
+<div class="layui-form users_list">
+    <table class="layui-table">
+        <colgroup>
+            <col width="50">
+            <col>
+            <col width="18%">
+            <col width="8%">
+            <col width="12%">
+            <col width="12%">
+            <col width="18%">
+            <col width="15%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose"></th>
+            <th>登录名</th>
+            <th>邮箱</th>
+            <th>性别</th>
+            <th>会员等级</th>
+            <th>会员状态</th>
+            <th>最后登录时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody class="users_content"></tbody>
+    </table>
+</div>
+
+
+
+
+
 <script>
     layui.config({
         base: '/resource/js/modules/' //你存放新模块的目录，注意，不是layui的模块目录
