@@ -2,7 +2,9 @@ package com.layui.model.base;
 
 import java.io.Serializable;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -11,23 +13,18 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Result<T> implements Serializable {
 
     private static final long serialVersionUID = 9098313078767070760L;
 
-    private boolean           success;
+    private String            code;
 
-    private T                 date;
+    private String            msg;
 
-    private String            error;
+    private Integer           count;
 
-    public Result(boolean success, T date) {
-        this.success = success;
-        this.date = date;
-    }
+    private T                 data;
 
-    public Result(boolean success, String error) {
-        this.success = success;
-        this.error = error;
-    }
 }

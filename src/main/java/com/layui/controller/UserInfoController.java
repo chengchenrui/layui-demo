@@ -6,9 +6,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.layui.model.User;
 import com.layui.model.base.Result;
@@ -22,7 +22,9 @@ import com.layui.model.base.Result;
 public class UserInfoController {
 
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public ModelMap list(HttpServletRequest httpServletRequest) {
+    @ResponseBody
+    public Result<List<User>> list(HttpServletRequest httpServletRequest) {
+        Result<List<User>> result = new Result<>();
         List<User> users = new ArrayList<>();
         User user;
         for (int i = 0; i < 20; i++) {
@@ -39,12 +41,12 @@ public class UserInfoController {
             users.add(user);
         }
 
-        ModelMap modelMap = new ModelMap();
-        modelMap.put("code", "0");
-        modelMap.put("msg", "");
-        modelMap.put("count", "20");
-        modelMap.put("data", users);
-        return modelMap;
+        result.setCode("0");
+        result.setMsg("");
+        result.setCount(20);
+        result.setData(users);
+
+        return result;
     }
 
 }
